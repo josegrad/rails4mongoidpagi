@@ -1,0 +1,21 @@
+<h1>People</h1>
+
+<% if flash[:notice] %>
+	<div class="alert alert-success"><%= flash[:notice] %></div>
+<% end %>
+
+
+<table id="op_table" class="table table-bordered table-hover" data-source="/people">
+	<thead>
+		<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Email</th>
+			<th>Notes</th>
+			<th>&nbsp;</th>
+			<th>&nbsp;</th>
+		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
