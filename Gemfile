@@ -46,4 +46,6 @@ end
 gem 'random-word'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 gem "data_table"
-gem "will_paginate_mongoid"
+#gem "will_paginate_mongoid"
+
+gem 'pagy'
