@@ -1,12 +1,9 @@
 class PeopleController < ApplicationController
   def index
-    puts "ööö"
     @people = Person.all
     respond_to do |format|
-      puts format.inspect
         format.html { }
         format.json do
-          puts "xxx"
             render json: PersonsDatatable.new(view_context)
         end
     end
