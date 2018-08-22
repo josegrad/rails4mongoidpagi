@@ -22,6 +22,13 @@ class PersonsDatatable
 
 private
 
+    # Sub-method called only by #pagy: here for easy customization of variables by overriding
+    def pagy_get_vars(collection, vars)
+        count = collection.count #(:all)
+        count = count.count if count.is_a?(Hash) 
+        { count: count, page: params[vars[:page_param]||Pagy::VARS[:page_param]] }.merge!(vars)
+    end
+
     def data
         persons.each.map do |person|
             [
@@ -36,9 +43,9 @@ private
     end
 
     def persons
-        pers = pagy(Person.all, page: page, items: per_page )
-        self.counter = pers.last.size
-        return pers.last
+        @page, pers = pagy(Person.all, page: page, items: per_page )
+        self.counter = pers.size
+        return pers
     end
   
     def page
